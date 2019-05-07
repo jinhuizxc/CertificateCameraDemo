@@ -18,7 +18,7 @@ import com.example.certificatecamera.CameraActivity;
  * Android中身份证正反面、营业执照横竖版的拍摄和裁剪
  * https://blog.csdn.net/qq_40441190/article/details/86702522
  */
-public class MainActivity extends AppCompatActivity {
+public class IDCardNormalActivity extends AppCompatActivity {
 
     private ImageView imageView;
 

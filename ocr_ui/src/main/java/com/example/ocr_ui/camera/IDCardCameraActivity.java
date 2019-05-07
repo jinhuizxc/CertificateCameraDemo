@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.ocr_ui.R;
 import com.example.ocr_ui.crop.CropView;
 import com.example.ocr_ui.crop.FrameOverlayView;
+import com.example.ocr_ui.util.FileUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -253,7 +254,7 @@ public class IDCardCameraActivity extends Activity {
     private View.OnClickListener takeButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            cameraView.takePicture(outputFile, takePictureCallback);
+            cameraView.takePicture(outputFile, takePictureCallback, contentType);
         }
     };
 

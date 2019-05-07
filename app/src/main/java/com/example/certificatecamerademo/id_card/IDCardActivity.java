@@ -1,7 +1,9 @@
-package com.example.certificatecamerademo;
+package com.example.certificatecamerademo.id_card;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
-import com.example.certificatecamerademo.utils.FileUtils;
+import com.example.certificatecamerademo.R;
+import com.example.certificatecamerademo.id_card.utils.GlideUtils;
+import com.example.ocr_ui.util.FileUtils;
 import com.example.ocr_ui.camera.IDCardCameraActivity;
 
 import butterknife.BindView;
@@ -108,19 +112,19 @@ public class IDCardActivity extends AppCompatActivity {
                     //判断是身份证正面还是反面
                     if (IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)) {
                         String filePath = FileUtils
-                                .getFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT)
-                                .getAbsolutePath();
+                                .getCropFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT)
+                                .getPath();
                         Log.d("返回的图片信息 front = ", filePath);
-                        Glide.with(this).load(filePath).into(ivImageFront);
-//                        GlideUtils.initImageNoCache(this, filePath, ivImageFront);
+                        GlideUtils.setImageNoCache(this, filePath, ivImageFront);
 //                        recIDCard(IDCardParams.ID_CARD_SIDE_FRONT, filePath);
                     } else if (IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK.equals(contentType)) {
                         String filePath = FileUtils
-                                .getFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK)
-                                .getAbsolutePath();
+                                .getCropFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK)
+                                .getPath();
                         Log.d("返回的图片信息 back = ", filePath);
-                        Glide.with(this).load(filePath).into(ivImageReverse);
-//                        GlideUtils.initImageNoCache(this, filePath, ivImageReverse);
+                        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+                        ivImageReverse.setImageBitmap(bitmap);
+                        GlideUtils.setImageNoCache(this, filePath, ivImageReverse);
 //                        recIDCard(IDCardParams.ID_CARD_SIDE_BACK, filePath);
                     }
                 }

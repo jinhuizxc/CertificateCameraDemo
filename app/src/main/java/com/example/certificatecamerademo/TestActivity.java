@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.certificatecamerademo.id_card.IDCardActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,7 +34,7 @@ public class TestActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.button1:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, IDCardNormalActivity.class));
                 break;
             case R.id.button2:
                 startActivity(new Intent(this, IDCardActivity.class));

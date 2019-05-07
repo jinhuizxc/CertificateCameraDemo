@@ -1,4 +1,4 @@
-package com.example.certificatecamerademo.utils;
+package com.example.ocr_ui.util;
 
 import android.content.Context;
 
@@ -54,6 +54,19 @@ public class FileUtils {
                 return new File(context.getFilesDir(), "idCardBack.jpg");
         }
         return new File(context.getFilesDir(), "picture.jpg");
+    }
+
+    /**
+     * @return 拍摄图片裁剪文件
+     */
+    public static File getCropFile(Context context, String type) {
+        switch (type) {
+            case IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT:
+                return new File(context.getFilesDir(), "idCardFrontCrop.jpg");
+            case IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK:
+                return new File(context.getFilesDir(), "idCardBackCrop.jpg");
+        }
+        return new File(context.getExternalCacheDir(), "pictureCrop.jpg");
     }
 
 }

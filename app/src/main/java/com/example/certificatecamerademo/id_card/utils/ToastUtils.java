@@ -1,4 +1,4 @@
-package com.example.certificatecamerademo.utils;
+package com.example.certificatecamerademo.id_card.utils;
 
 import android.content.Context;
 import android.widget.Toast;

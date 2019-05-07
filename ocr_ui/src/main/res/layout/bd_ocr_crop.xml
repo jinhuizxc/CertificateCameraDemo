@@ -15,7 +15,7 @@
     <com.example.ocr_ui.camera.OCRFrameLayout
         android:id="@+id/crop_view_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <com.example.ocr_ui.crop.CropView
             android:id="@+id/crop_view"
