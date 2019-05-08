@@ -57,7 +57,7 @@ public class FileUtils {
     }
 
     /**
-     * @return 拍摄图片裁剪文件
+     * @return 拍摄图片裁剪文件, 不适用于相册裁剪后使用，因为文件名发生了变化
      */
     public static File getCropFile(Context context, String type) {
         switch (type) {

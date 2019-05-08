@@ -775,7 +775,8 @@ public class CameraView extends FrameLayout {
                 @Override
                 public void run() {
                     final int rotation = ImageUtil.getOrientation(data);
-                    Bitmap bitmap = crop(file, data, rotation, type);
+                    Bitmap bitmap = crop(file, data, rotation);
+//                    Bitmap bitmap = crop(file, data, rotation, type);
                     callback.onPictureTaken(bitmap);
                 }
             });

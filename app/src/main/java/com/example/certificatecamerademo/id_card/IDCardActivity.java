@@ -31,7 +31,7 @@ import butterknife.OnClick;
  *
  * TODO 待优化;
  * 1. 图片裁剪后的页面大小调整;
- * 2. 第二次拍照返回图片相同的问题;
+ * 2. 从相册取图片裁剪后显示图片有误;
  */
 public class IDCardActivity extends AppCompatActivity {
 
@@ -112,14 +112,14 @@ public class IDCardActivity extends AppCompatActivity {
                     //判断是身份证正面还是反面
                     if (IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)) {
                         String filePath = FileUtils
-                                .getCropFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT)
+                                .getFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_FRONT)
                                 .getPath();
                         Log.d("返回的图片信息 front = ", filePath);
                         GlideUtils.setImageNoCache(this, filePath, ivImageFront);
 //                        recIDCard(IDCardParams.ID_CARD_SIDE_FRONT, filePath);
                     } else if (IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK.equals(contentType)) {
                         String filePath = FileUtils
-                                .getCropFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK)
+                                .getFile(getApplicationContext(), IDCardCameraActivity.CONTENT_TYPE_ID_CARD_BACK)
                                 .getPath();
                         Log.d("返回的图片信息 back = ", filePath);
                         Bitmap bitmap = BitmapFactory.decodeFile(filePath);
